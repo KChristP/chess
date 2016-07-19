@@ -13,9 +13,9 @@ class Game
   def run
     puts "Running"
     until @board.checkmate?
-      # pos = @player.move
+      pos = @player.move
       # @board.mark(pos)
-      # @display.render
+      @display.render
     end
     puts "Board filled"
   end
