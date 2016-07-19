@@ -46,7 +46,7 @@ class Display
 
     build_grid.each { |row| puts row.join}
     # p @board.grid[-1][0]
-    p @board.grid[7][3].move_dirs
+    p @board.grid[7][1].move_diffs
   end
 
   # def mini_play

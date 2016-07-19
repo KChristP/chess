@@ -4,6 +4,21 @@ class Knight < Pieces
     super
 
     @symbol = :N
+    @moves = [
+      [-2, -1],
+      [-2, 1],
+      [-1, -2],
+      [-1, 2],
+      [1, -2],
+      [1, 2],
+      [2, -1],
+      [2, 1]]
+  end
+
+  # protected
+
+  def move_diffs
+    super
   end
 
 end
