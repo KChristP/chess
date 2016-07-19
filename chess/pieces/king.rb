@@ -3,7 +3,7 @@ class King < Pieces
   def initialize(board, color, pos)
     super
 
-    @symbol = :K
+    @symbol = " K "
     @moves = [[0,1],
     [0,-1],
     [-1,1],

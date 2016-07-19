@@ -3,7 +3,7 @@ class Queen < Pieces
   def initialize(board, color, pos)
     super
 
-    @symbol = :Q
+    @symbol = " Q "
   end
 
   def move_dirs

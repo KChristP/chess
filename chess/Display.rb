@@ -53,9 +53,7 @@ class Display
 
     build_grid.each { |row| puts row.join}
     # p @board.grid[-1][0]
-    p @board.grid[5][5].class
-    p @board.grid[5][5].color
-    p @board.grid[5][5].moves
+
   end
 
   # def mini_play

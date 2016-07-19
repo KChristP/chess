@@ -3,7 +3,7 @@ class Knight < Pieces
   def initialize(board,color, pos)
     super
 
-    @symbol = :N
+    @symbol = " N "
     @moves = [
       [-2, -1],
       [-2, 1],

@@ -3,7 +3,7 @@ class Bishop < Pieces
   def initialize(board,color, pos)
     super
 
-    @symbol = :B
+    @symbol = " B "
   end
 
   def move_dirs

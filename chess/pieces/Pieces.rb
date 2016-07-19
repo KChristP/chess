@@ -17,6 +17,10 @@ class Pieces
   def empty?
   end
 
+  def update_pos(end_pos)
+    @pos = end_pos
+  end
+
   def symbol
     @symbol
   end

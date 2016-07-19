@@ -23,8 +23,6 @@ class Board
       end
     end
 
-    @grid[5][5] = Pawn.new(self, "white", [5,5])
-
     (0..7).each do |i|
       @grid[1][i] = Pawn.new(self, "white", [1,i])
       @grid[6][i] = Pawn.new(self, "black", [6,i])
@@ -58,14 +56,35 @@ class Board
       raise ArgumentError.new "Not a valid move"
     end
     @grid[start_pos], @grid[end_pos] = @grid[end_pos], @grid[start_pos]
+
   end
 
-  def mark(pos)
-    x,y = pos
-    @grid[x][y] = "X"
+  def self.copy_board(board)
+    new_board = Board.new
+    board.grid.each_with_index do |row, row_idx|
+      row.each_with_index do |value, col_idx|
+        new_board.grid[row_idx][col_idx] = board[row_idx][col_idx].dup
+      end
+    end
+
   end
 
+  def deep_dup
+    dd_board = []
+    @board.each do |row|
+      dd_row = []
+      row.each do |element|
+        dd_row << element.dup
+      end
+      dd_board << dd_row
+    end
+    dd_board
+  end
 
+  def move_piece(color, from_pos, to_pos)
+    dup_board = deep_dup
+    dup_board.grid
+  end
 
   def in_bounds?(pos)
     pos.all? {|row_or_col| row_or_col.between?(0, 7)}

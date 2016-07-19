@@ -3,7 +3,7 @@ class Rook < Pieces
   def initialize(board, color, pos)
     super
 
-    @symbol = :R
+    @symbol = " R "
   end
 
   def move_dirs

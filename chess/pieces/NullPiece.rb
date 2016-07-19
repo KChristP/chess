@@ -4,7 +4,7 @@ class NullPiece
   include Singleton
   attr_reader :pos
   def initialize
-    @symbol = :_
+    @symbol = "   "
     @color = ""
     @pos = [4,4]
   end
