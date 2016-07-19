@@ -26,27 +26,27 @@ class Board
 
 
     (0..7).each do |i|
-      @grid[1][i] = Pawn.new(self, "white")
-      @grid[6][i] = Pawn.new(self, "black")
+      @grid[1][i] = Pawn.new(self, "white", [1,i])
+      @grid[6][i] = Pawn.new(self, "black", [6,i])
     end
 
     #rooks
-    @grid[0][0], @grid[0][7] = Rook.new(self,"white"), Rook.new(self,"white")
-    @grid[7][0], @grid[7][7] = Rook.new(self,"black"), Rook.new(self,"black")
+    @grid[0][0], @grid[0][7] = Rook.new(self,"white", [0,0]), Rook.new(self,"white", [0,7])
+    @grid[7][0], @grid[7][7] = Rook.new(self,"black", [7,0]), Rook.new(self,"black", [7,7])
 
     #knight
-    @grid[0][1], @grid[0][6] = Knight.new(self,"white"), Knight.new(self,"white")
-    @grid[7][1], @grid[7][6] = Knight.new(self,"black"), Knight.new(self,"black")
+    @grid[0][1], @grid[0][6] = Knight.new(self,"white", [0,1]), Knight.new(self,"white", [0,6])
+    @grid[7][1], @grid[7][6] = Knight.new(self,"black", [7,1]), Knight.new(self,"black", [7,6])
 
     #bishops
-    @grid[0][2], @grid[0][5] = Bishop.new(self,"white"), Bishop.new(self,"white")
-    @grid[7][2], @grid[7][5] = Bishop.new(self,"black"), Bishop.new(self,"black")
+    @grid[0][2], @grid[0][5] = Bishop.new(self,"white", [0,2]), Bishop.new(self,"white",[0,5])
+    @grid[7][2], @grid[7][5] = Bishop.new(self,"black", [7,2]), Bishop.new(self,"black", [7,5])
 
-    @grid[0][3], @grid[0][3] = Queen.new(self,"white"), Queen.new(self,"white")
-    @grid[7][3], @grid[7][3] = Queen.new(self,"black"), Queen.new(self,"black")
+    @grid[0][3] = Queen.new(self,"white", [0,3])
+    @grid[7][3] = Queen.new(self,"black", [7,3])
 
-    @grid[0][4], @grid[0][4] = King.new(self,"white"), King.new(self,"white")
-    @grid[7][4], @grid[7][4] = King.new(self,"black"), King.new(self,"black")
+    @grid[0][4] = King.new(self,"white", [0,4])
+    @grid[7][4] = King.new(self,"black", [7,4])
 
   end
 
@@ -77,10 +77,9 @@ class Board
 
 end
 
-# board = Board.new
+board = Board.new
 # board.populate
-# p board.grid
-
+p board.grid[0][0].pos
 # def []
 #
 # end

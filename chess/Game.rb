@@ -16,6 +16,7 @@ class Game
       pos = @player.move
       # @board.mark(pos)
       @display.render
+      p @board.grid[0][0].pos
     end
     puts "Board filled"
   end

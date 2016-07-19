@@ -5,9 +5,10 @@ require_relative 'SteppingPiece'
 class Pieces
   attr_reader :color, :board, :pos
 
-  def initialize(board, color)
+  def initialize(board, color, pos)
     @board = board
     @color = color
+    @pos = pos
   end
 
   def to_s
