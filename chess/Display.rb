@@ -29,6 +29,13 @@ class Display
   end
 
   def colors_for(i, j)
+    # @board.grid.each do |row|
+    #   row.each do |element|
+    #     element.color == "white" ? piece = :white : piece = :purple
+    #   end
+    # end
+    @board.grid[i][j].color == "white" ? piece = :white : piece = :light_blue
+
     if [i, j] == @cursor_pos
       bg = :light_red
     elsif (i + j).odd?
@@ -36,7 +43,7 @@ class Display
     else
       bg = :green
     end
-    {background: bg, color: :white}
+    {background: bg, color: piece}
   end
 
   def render
@@ -46,11 +53,13 @@ class Display
 
     build_grid.each { |row| puts row.join}
     # p @board.grid[-1][0]
-    p @board.grid[7][1].move_diffs
+    p @board.grid[5][5].class
+    p @board.grid[5][5].color
+    p @board.grid[5][5].moves
   end
 
   # def mini_play
-  #   render
+  #   renders
   #   p @board
   # end
 
