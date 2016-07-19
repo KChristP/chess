@@ -17,8 +17,11 @@ class Knight < Pieces
 
   # protected
 
-  def move_diffs
+  # def move_diffs
+  #   super
+  # end
+
+  def moves
     super
   end
-
 end

@@ -3,7 +3,7 @@
 module SteppingPiece
 
   def moves()
-
+    move_diffs
   end
 
   private

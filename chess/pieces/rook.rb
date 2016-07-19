@@ -6,7 +6,11 @@ class Rook < Pieces
     @symbol = " R "
   end
 
-  def move_dirs
+  # def move_dirs
+  #   horizontal_dirs
+  # end
+
+  def moves
     horizontal_dirs
   end
 

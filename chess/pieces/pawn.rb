@@ -49,11 +49,15 @@ class Pawn < Pieces
     attacks = []
     current_r, current_c = @pos
     if self.color == "black"
-      attacks << [current_r - 1, current_c + 1] if @board.grid[current_r - 1][current_c + 1].color == "white"
-      attacks << [current_r - 1, current_c - 1] if @board.grid[current_r - 1][current_c - 1].color == "white"
+      up_right = @board.grid[current_r - 1][current_c + 1]
+      up_left = @board.grid[current_r - 1][current_c - 1]
+      attacks << [current_r - 1, current_c + 1] if  !up_right.nil? && up_right.color == "white"
+      attacks << [current_r - 1, current_c - 1] if !up_left.nil? && up_left.color == "white"
     elsif self.color == "white"
-      attacks << [current_r + 1, current_c + 1] if @board.grid[current_r + 1][current_c + 1].color == "black"
-      attacks << [current_r + 1, current_c - 1] if @board.grid[current_r + 1][current_c - 1].color == "black"
+      down_right = @board.grid[current_r + 1][current_c + 1]
+      down_left = @board.grid[current_r + 1][current_c - 1]
+      attacks << [current_r + 1, current_c + 1] if !down_right.nil? && down_right.color == "black"
+      attacks << [current_r + 1, current_c - 1] if !down_left.nil? && down_left.color == "black"
     end
     attacks
   end

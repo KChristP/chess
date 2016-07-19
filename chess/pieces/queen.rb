@@ -6,7 +6,13 @@ class Queen < Pieces
     @symbol = " Q "
   end
 
-  def move_dirs
+  # def move_dirs
+  #   moves = []
+  #   moves.concat(horizontal_dirs)
+  #   moves.concat(diagonal_dirs)
+  #   moves
+  # end
+  def moves
     moves = []
     moves.concat(horizontal_dirs)
     moves.concat(diagonal_dirs)
