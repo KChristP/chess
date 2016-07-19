@@ -25,10 +25,10 @@ class Board
 
 
 
-    (0..7).each do |i|
-      @grid[1][i] = Pawn.new(self, "white", [1,i])
-      @grid[6][i] = Pawn.new(self, "black", [6,i])
-    end
+    # (0..7).each do |i|
+    #   @grid[1][i] = Pawn.new(self, "white", [1,i])
+    #   @grid[6][i] = Pawn.new(self, "black", [6,i])
+    # end
 
     #rooks
     @grid[0][0], @grid[0][7] = Rook.new(self,"white", [0,0]), Rook.new(self,"white", [0,7])

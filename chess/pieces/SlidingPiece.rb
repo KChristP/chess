@@ -18,60 +18,51 @@ module SlidingPiece
 
   private
   def move_dirs()
-    # dirs = []
-    # out << horizontal_dirs
-    # out << diagonal_drs
-  end
-
-  def vertical_dirs()
-    row,col = @pos
-
-    possible_moves = []#horizontal
-    (1..7).each do |i|
-      next_piece_D = @board.grid[row + i][col]
-      next_piece_U = @board.grid[row - i][col]
-      unless next_piece_D.color != self.color || next_piece_R.nil?
-        possible_moves << [row + i, col]
-      end
-
-      unless next_piece_U.color != self.color || next_piece_L.nil?
-        possible_moves << [row - i, col]
-      end
-    end
 
   end
 
   def horizontal_dirs()
-    possible_moves = []#horizontal
+    moves = []
     (1..7).each do |i|
-      next_piece_R = @board.grid[@pos[0]][pos[1] + i]
-      next_piece_L = @board.grid[@pos[0]][pos[1] - i]
-      unless next_piece_R.color != self.color || next_piece_R.nil?
-        possible_moves << [@pos[0], pos[1] + i]
-      end
-
-      unless next_piece_L.color != self.color || next_piece_L.nil?
-        possible_moves << [@pos[0], pos[1] - i]
-      end
+      moves.concat(grow_unblocked_moves_in_dir(0,i)) #horizontal
+      moves.concat(grow_unblocked_moves_in_dir(i,0)) #vertical
     end
+
+    moves
   end
 
   def diagonal_dirs()
+    moves = []
+    (1..7).each do |i|
+      moves.concat(grow_unblocked_moves_in_dir(i,i))
+      moves.concat(grow_unblocked_moves_in_dir(i,-i))
+    end
+    moves
   end
 
-  def grow_unblocked_moves_in_dir(dx,dy)#return array of moves in just this direction
+  def grow_unblocked_moves_in_dir(drow,dcol)#return array of moves in just this direction
     possible_moves = []#horizontal
-    (1..7).each do |i|
-      next_piece_R = @board.grid[@pos[0]][pos[1] + i]
-      next_piece_L = @board.grid[@pos[0]][pos[1] - i]
-      unless next_piece_R.color != self.color || next_piece_R.nil?
-        possible_moves << [@pos[0], pos[1] + i]
+      # p @pos[0] + drow if @board.grid[@pos[0] + drow].nil?
+      pRow, pCol = [@pos[0] + drow , @pos[1] + dcol]
+      nRow, nCol = @pos[0] - drow , @pos[1] - dcol
+      n_check = [nRow, nCol].all? {|n| n.between?(0,7)}
+      p_check = [pRow, pCol].all? {|n| n.between?(0,7)}
+
+
+      next_piece_positive = @board.grid[@pos[0] + drow][@pos[1] + dcol] if p_check
+      next_piece_negative = @board.grid[@pos[0] - drow][@pos[1] - dcol] if n_check
+
+
+      # p "#{pRow} #{pCol} #{nRow} #{nCol}" if next_piece_positive.nil? || next_piece_negative.nil?
+      unless !p_check || next_piece_positive.color == self.color
+        possible_moves << [@pos[0] + drow , @pos[1] + dcol]
       end
 
-      unless next_piece_L.color != self.color || next_piece_L.nil?
-        possible_moves << [@pos[0], pos[1] - i]
+      unless  !n_check || next_piece_negative.color == self.color
+        possible_moves << [@pos[0] - drow , @pos[1] - dcol]
       end
-    end
 
+
+    possible_moves.uniq
   end
 end

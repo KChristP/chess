@@ -6,4 +6,8 @@ class Bishop < Pieces
     @symbol = :B
   end
 
+  def move_dirs
+    diagonal_dirs
+  end
+
 end

@@ -21,6 +21,10 @@ class Pieces
     @symbol
   end
 
+  def color
+    @color
+  end
+
   def valid_moves()
   end
 

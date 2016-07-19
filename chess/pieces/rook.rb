@@ -5,4 +5,9 @@ class Rook < Pieces
 
     @symbol = :R
   end
+
+  def move_dirs
+    horizontal_dirs
+  end
+
 end

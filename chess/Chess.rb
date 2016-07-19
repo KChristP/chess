@@ -1,7 +1,7 @@
 require_relative "Board"
 require_relative "Player"
 
-class Game
+class Chess
   def initialize
     @board = Board.new
     @player = Player.new()
@@ -16,12 +16,12 @@ class Game
       pos = @player.move
       # @board.mark(pos)
       @display.render
-      p @board.grid[0][0].pos
+      
     end
     puts "Board filled"
   end
 end
 
 if __FILE__ == $PROGRAM_NAME
-  Game.new.run
+  Chess.new.run
 end

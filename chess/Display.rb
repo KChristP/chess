@@ -1,6 +1,6 @@
 require_relative 'Board'
 require 'colorize'
-require_relative 'Game'
+require_relative 'Chess'
 require_relative 'cursorable'
 require "io/console"
 
@@ -43,7 +43,10 @@ class Display
     system("clear")
     puts "Select a square"
     puts "Arrow keys"
+
     build_grid.each { |row| puts row.join}
+    # p @board.grid[-1][0]
+    p @board.grid[7][3].move_dirs
   end
 
   # def mini_play
