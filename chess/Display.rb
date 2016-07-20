@@ -61,6 +61,17 @@ class Display
   #   p @board
   # end
 
+  def get_input
+    if @selected == true
+      current_position = @cursor_pos
+
+    if @selected == false
+
+      @current
+
+
+  end
+
 end
 
 # display = Display.new()

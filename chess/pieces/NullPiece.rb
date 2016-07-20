@@ -9,6 +9,9 @@ class NullPiece
     @pos = [4,4]
   end
 
+  def update_pos(pos)
+  end
+
   def symbol
     @symbol
   end
